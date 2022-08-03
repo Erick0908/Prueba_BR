@@ -1,0 +1,88 @@
+﻿@model List<ErickPrueba.Models.ViewModels.LisCandidatoViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row" style="text-align:right; padding:5px">
+    <a href="~/Candidato/Nuevo" class="btn btn-primary">Nuevo</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>Cedula</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Fecha De Nacimiento</th>
+                <th>Trabajo Actual</th>
+                <th>Expectativa Salarial</th>
+            </tr>
+            @foreach (var OCandidato in Model)
+            {
+                <tr>
+                    <td>@OCandidato.Cedula</td>
+                    <td>@OCandidato.Nombres</td>
+                    <td>@OCandidato.Apellidos</td>
+                    <td>@OCandidato.FechaDeNacimiento.ToString("dd/MM/yyyy")</td>
+                    <td>@OCandidato.Trabajo_Actual</td>
+                    <td>@OCandidato.Expectativa_Salarial</td>
+
+                    <td>
+                        <a class="btn btn-danger" href="~/Candidato/Editar/@OCandidato.Id">Editar</a>
+                        <input class="btn btn-success" onclick="jsDelete(@OCandidato.Id);" type="button" value="Eliminar" />
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function jsDelete(Id) {
+
+        if (confirm("Estas seguro que desea eliminar el registro")) {
+        url = "@Url.Content("~/Candidato/Eliminar")" + "/" + Id;
+            $.post(url, function (data) {
+
+                if (data == "1") {
+
+                    document.location.href = "@Url.Content("~/Candidato")"
+                }
+                else {
+                    alert("Ocurrio un Error");
+                }
+
+            }
+        )}
+
+    }
+
+</script>
+
+

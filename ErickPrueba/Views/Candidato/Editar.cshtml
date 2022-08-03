@@ -1,0 +1,64 @@
+﻿@model ErickPrueba.Models.ViewModels.CandidatoViewModel
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Editar", "Candidato", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(d => d.Cedula)
+            <div>
+                @Html.LabelFor(d => d.Cedula)
+                @Html.TextBoxFor(d => d.Cedula, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Cedula, null, new { @class = "PS" })
+                <div class="PS">
+                @if (Model != null && !string.IsNullOrEmpty(Model.Validador))
+                {@Model.Validador}
+                </div>
+            </div>
+
+            <div>
+                @Html.LabelFor(d => d.Nombres)
+                @Html.EditorFor(d => d.Nombres, "", new { @class = "form-control" }) <br />
+                @Html.ValidationMessageFor(d => d.Nombres, null, new { @class = "PS" })
+            </div>
+
+            <div>
+                @Html.LabelFor(d => d.Apellidos)
+                @Html.TextBoxFor(d => d.Apellidos, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Apellidos, null, new { @class = "PS" })
+            </div>
+            <br />
+
+            <div>
+                @Html.LabelFor(d => d.FechaDeNacimiento)
+                @Html.EditorFor(d => d.FechaDeNacimiento, "", new { @class = "form-control" }) <br />
+                @Html.ValidationMessageFor(d => d.FechaDeNacimiento, null, new { @class = "erick" })
+            </div> 
+
+            <div>
+                @Html.LabelFor(d => d.Trabajo_Actual)
+                @Html.EditorFor(d => d.Trabajo_Actual, "", new { @class = "form-control" }) <br />
+                @Html.ValidationMessageFor(d => d.Trabajo_Actual, null, new { @class = "erick" })
+            </div>
+
+            <div>
+                @Html.LabelFor(d => d.Expectativa_Salarial)
+                @Html.EditorFor(d => d.Expectativa_Salarial, "", new { @class = "form-control" }) <br />
+                @Html.ValidationMessageFor(d => d.Expectativa_Salarial, null, new { @class = "erick" })
+            </div>
+
+
+
+
+            <div style="text-align:right;">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+
+        </div>
+
+    </div>
+}
