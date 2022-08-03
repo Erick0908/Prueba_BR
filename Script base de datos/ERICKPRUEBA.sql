@@ -1,0 +1,22 @@
+CREATE DATABASE ERICKPRUEBA
+GO 
+
+USE ERICKPRUEBA 
+GO
+
+CREATE TABLE Candidato (
+ID INT PRIMARY KEY IDENTITY (1,1),
+Cedula Varchar(11), 
+Nombres VARCHAR (60)  NOT NULL,
+Apellidos VARCHAR (60)  NOT NULL,
+FechaDeNacimiento DATETIME  NOT NULL,
+Trabajo_actual VARCHAR (200),
+Expectativa_Salarial INT
+)
+
+GO
+ALTER TABLE Candidato ADD CONSTRAINT UQ__Constrai UNIQUE (Cedula)
+GO
+SET LANGUAGE SPANISH
+SET DATEFORMAT dmy;  
+
