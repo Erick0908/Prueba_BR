@@ -11,8 +11,8 @@
         <div class="col-md-12">
             <div>
                 @Html.LabelFor(d => d.Cedula)
-                @Html.TextBoxFor(d => d.Cedula, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.Cedula, null, new { @class = "erick" })
+                @Html.TextBoxFor(d => d.Cedula, "", new { @class = "form-control", @type = "number" })
+                @Html.ValidationMessageFor(d => d.Cedula, null, new { @class = "PS" })
                 @if (Model !=null&&!string.IsNullOrEmpty(Model.Validador)){@Model.Validador}
             </div><br/>
 
@@ -43,7 +43,7 @@
             
             <div>
                 @Html.LabelFor(d => d.Expectativa_Salarial)
-                @Html.TextBoxFor(d => d.Expectativa_Salarial, "", new { @class = "form-control" })
+                @Html.TextBoxFor(d => d.Expectativa_Salarial, "", new { @class = "form-control", @type = "number" })
                 @Html.ValidationMessageFor(d => d.Expectativa_Salarial, null, new { @class = "PS" })
             </div>
 
